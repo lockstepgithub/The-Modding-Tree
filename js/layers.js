@@ -45,13 +45,10 @@ addLayer("p", {
             description: "COST SCALING TIME 2 ",
             cost: new Decimal(5),
             effect() {
-                return player.points.add(1).pow(0.15)
+                return player[this.layer].points.add(1.2).pow(0.6)
             },
-            gainMult() {
-                let mult = new Decimal(1)
-                if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
-                return mult
-            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+
         },
     },
 })
@@ -85,9 +82,9 @@ addLayer("b", {
     branches: ["p"],
     upgrades: {
         11: {
-            title: "le double",
-            description: "Double your presiege point gain.",
-            cost: new Decimal(1),
+            title: "bricky doubloon",
+            description: "Triple your point gain.",
+            cost: new Decimal(2),
         },
     },
 })
