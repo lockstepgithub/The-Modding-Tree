@@ -13,14 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "Literally nothing",
+	num: "0.2",
+	name: "	The Second and 3rd layer",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1</h3><br>
-		- Added bricks.<br>
-		- Added stuff.`
+	<h3>v0.2</h3><br>
+		- Added stones and iron.<br>
+		- Added upgrades.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -46,6 +46,9 @@ function getPointGen() {
 	if (hasUpgrade('p', 11)) gain = gain.times(2)
 	if (hasUpgrade('p', 12)) gain = gain.times(upgradeEffect('p', 12))
 	if (hasUpgrade('b', 11)) gain = gain.times(3)
+	if (hasUpgrade('b', 12)) gain = gain.times(upgradeEffect('b', 12))
+	if (hasUpgrade('s', 11)) gain = gain.times(4)
+	if (hasUpgrade('i', 11)) gain = gain.times(7)
 	return gain
 }
 
